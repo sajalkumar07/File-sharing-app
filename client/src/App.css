@@ -3,35 +3,92 @@
   padding: 0;
 }
 
-.container{
-  background: #000;
+.container {
+  background: linear-gradient(135deg, #000000, #434343); /* Adding a subtle gradient */
   height: 100vh;
   overflow: hidden;
   display: flex;
+  justify-content: center; /* Ensure .wrapper is centered horizontally */
+  align-items: center; /* Ensure .wrapper is centered vertically */
+  color: #fff; /* Default text color changed to white for contrast */
 }
 
-img{
+img {
   width: 30%;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-.wrapper{
+img:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.wrapper {
   background-color: #fff;
   width: 600px;
   height: 400px;
-  margin: auto;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adding shadow for depth */
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: hidden; /* Ensures nothing spills out of the rounded corners */
 }
 
-h1{
+h1 {
   font-size: 40px;
   font-weight: 600;
-  color: #445A6F;
-  margin: 40px 0;
+  color: #000000;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
 }
 
-button{
+p{
+  color: black;
+}
+/* Adding a subtle background animation */
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Adjust based on where you place the loader */
+  color: #445A6F;
+}
+
+.loading-circle {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #445A6F; /* Color of the circle */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+p {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+.container {
+  background-size: 200% 200%; /* Prepare for animation */
+  animation: backgroundShift 30s ease infinite; /* Apply animation */
+}
+
+
+button {
   width: 150px;
   height: 40px;
   border-radius: 5px;
@@ -40,4 +97,13 @@ button{
   color: #fff;
   font-size: 20px;
   margin: 30px 0;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+button:hover {
+  background-color: #567D9F; /* Lighter shade for hover */
+  border: 1px solid #567D9F;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transform: translateY(-2px); /* Slight lift */
 }
